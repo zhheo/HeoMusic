@@ -446,7 +446,7 @@
 .aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap {
   position: absolute;
   bottom: 15px;
-  right: -3px;
+  right: 6px;
   width: 25px;
   height: 0;
   z-index: 99;

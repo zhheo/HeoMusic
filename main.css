@@ -270,6 +270,7 @@ body:has(#heoMusic-page) #nav-music {
   max-width: 480px;
   max-height: none !important;
   height: 100%;
+  min-width: 200px;
 }
 #heoMusic-page ol {
   max-height: calc(100vh - 170px)!important;
