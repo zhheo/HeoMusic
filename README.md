@@ -12,4 +12,4 @@
 
 [@张洪Heo](https://github.com/zhheo)
 [@anzhiyu](https://github.com/anzhiyu-c)
-[@叶椰子](https://blog.yeooe.cn/)
+[@叶椰子](https://github.com/Glowed)

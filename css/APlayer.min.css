@@ -523,8 +523,6 @@
 .aplayer .aplayer-lrc p {
   font-size: 12px;
   color: var(--heo-white);
-  line-height: 60px;
-  height: 60px;
   padding: 0;
   margin: 0;
   transition: all .5s ease-out;
@@ -536,7 +534,6 @@
   opacity: 1;
   overflow: hidden;
   height: auto;
-  min-height: 16px
 }
 
 .aplayer .aplayer-lrc.aplayer-lrc-hide {
@@ -587,15 +584,14 @@
 
 .aplayer .aplayer-list ol li {
   position: relative;
-  height: 32px;
-  line-height: 32px;
+  height: 31px;
+  line-height: 31px;
   padding: 0 15px;
   font-size: 12px;
-  border-top: 1px solid #e9e9e9;
   cursor: pointer;
   transition: all .2s ease;
   overflow: hidden;
-  margin: 0
+  margin: 1px 0;
 }
 
 .aplayer .aplayer-list ol li:first-child {
