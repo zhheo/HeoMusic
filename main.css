@@ -35,6 +35,7 @@
 
 body:has(#heoMusic-page) {
   background: rgb(13, 13, 13);
+  position: relative;
 }
 
 #heoMusic-page meting-js .aplayer{
@@ -163,11 +164,11 @@ body:has(#heoMusic-page) #nav-music {
   font-size: 36px;
   line-height: 44px;
   height: 44px;
+  margin-bottom: 36px;
   color: #fff;
   font-weight: bold;
   text-align: left;
   filter: blur(3px);
-  margin-bottom: 36px;
   opacity: 0.3;
   transition: all 0.9s cubic-bezier(0.56, 0.17, 0.22, 0.76);
 }
@@ -190,6 +191,7 @@ body:has(#heoMusic-page) #nav-music {
   width: 90%;
   margin-left: auto;
   transition: all .5s cubic-bezier(0.49, 0.21, 0.22, 0.84);
+  position: relative;
 }
 
 @media screen and (max-width: 768px) {
@@ -532,6 +534,7 @@ body:has(#heoMusic-page) .aplayer .aplayer-info .aplayer-controller .aplayer-tim
   #heoMusic-page .aplayer-info .aplayer-lrc p {
     font-size: 32px;
     margin-bottom: 36px;
-    line-height: 38px;
+    line-height: 42px;
+    height: 42px;
   }
 }
