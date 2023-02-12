@@ -174,14 +174,14 @@ body:has(#heoMusic-page) #nav-music {
   opacity: 0.3;
   transition: all 0.9s cubic-bezier(0.56, 0.17, 0.22, 0.76);
   user-select:none;
-  text-shadow: 0px 4px 6px #ffffff00;
+  text-shadow: 0px 3px 8px #ffffff00;
 }
 #heoMusic-page .aplayer-info .aplayer-lrc p.aplayer-lrc-current {
   filter: blur(0px);
   opacity: 1;
   transition: all 0.3s cubic-bezier(0.56, 0.17, 0.22, 0.76), text-shadow 4s 4s ease-in-out;
   height: fit-content;
-  text-shadow: 0px 4px 6px #ffffff94;
+  text-shadow: 0px 3px 8px #ffffff94;
 }
 
 #heoMusic-page .aplayer-info .aplayer-lrc:hover p {

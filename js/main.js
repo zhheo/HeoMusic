@@ -1,3 +1,5 @@
+console.log("\n %c HeoMusic 开源静态音乐播放器 v1.0 %c https://github.com/zhheo/HeoMusic \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
+
 var heo = {
   // 音乐节目切换背景
   changeMusicBg: function (isChangeBg = true) {
@@ -16,7 +18,7 @@ var heo = {
       let timer = setInterval(()=>{
         const musiccover = document.querySelector("#heoMusic-page .aplayer-pic");
         // 确保player加载完成
-        console.info(heoMusicBg);
+        // console.info(heoMusicBg);
         if (musiccover) {
           clearInterval(timer)
           // 绑定事件
@@ -52,3 +54,10 @@ function extractValue(input) {
   var match = valueRegex.exec(input);
   return match[1];
 }
+
+//空格控制音乐
+document.addEventListener("keydown", function(event) {
+  if (event.code === "Space") {
+    document.querySelector('meting-js').aplayer.toggle();
+  }
+});
