@@ -1,4 +1,4 @@
-console.log("\n %c HeoMusic 开源静态音乐播放器 v1.0 %c https://github.com/zhheo/HeoMusic \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
+console.log("\n %c HeoMusic 开源静态音乐播放器 v1.1 %c https://github.com/zhheo/HeoMusic \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
 
 var heo = {
   // 音乐节目切换背景
@@ -31,7 +31,7 @@ var heo = {
     const heoMusicPage = document.getElementById("heoMusic-page");
     heoMusicPage.querySelector("meting-js").aplayer.on('loadeddata', function () {
       heo.changeMusicBg();
-      console.info('player loadeddata');
+      // console.info('player loadeddata');
     });
   },
 }
@@ -58,6 +58,7 @@ function extractValue(input) {
 //空格控制音乐
 document.addEventListener("keydown", function(event) {
   if (event.code === "Space") {
+    event.preventDefault();
     document.querySelector('meting-js').aplayer.toggle();
   }
 });

@@ -531,7 +531,7 @@
 
 .aplayer .aplayer-lrc p.aplayer-lrc-current {
   opacity: 1;
-  overflow: hidden;
+  overflow: inherit;
   height: auto;
 }
 
@@ -583,8 +583,8 @@
 
 .aplayer .aplayer-list ol li {
   position: relative;
-  height: 31px;
-  line-height: 31px;
+  height: 32px;
+  line-height: 32px;
   padding: 0 15px;
   font-size: 12px;
   cursor: pointer;
