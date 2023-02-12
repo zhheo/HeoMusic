@@ -6,7 +6,9 @@
 
 ## 修改歌单
 
-请根据[MetingJS规则](https://github.com/metowolf/MetingJS)编辑`index.html`的aplayer相关代码
+请根据[MetingJS规则](https://github.com/metowolf/MetingJS)编辑`index.html`的Meting-js相关代码
+
+![修改id和server](/img/help.webp)
 
 ## 预览
 
