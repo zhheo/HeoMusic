@@ -6,7 +6,11 @@ var heo = {
     if (isChangeBg) {
       // player loadeddata 会进入此处
       const musiccover = document.querySelector("#heoMusic-page .aplayer-pic");
-      heoMusicBg.style.backgroundImage = musiccover.style.backgroundImage;
+      var img = new Image();
+      img.src = extractValue(musiccover.style.backgroundImage);
+      img.onload = function() {
+        heoMusicBg.style.backgroundImage = musiccover.style.backgroundImage;
+      };
     } else {
       // 第一次进入，绑定事件，改背景
       let timer = setInterval(()=>{
@@ -41,3 +45,10 @@ window.addEventListener('resize', () => {
   let vh = window.innerHeight * 1;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
+
+//获取url
+function extractValue(input) {
+  var valueRegex = /\("([^\s]+)"\)/g;
+  var match = valueRegex.exec(input);
+  return match[1];
+}

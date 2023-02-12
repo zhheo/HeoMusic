@@ -114,7 +114,7 @@ body:has(#heoMusic-page) #nav-music {
 }
 
 #heoMusic-page .aplayer-body {
-  width: 100%;
+  width: 70%;
   height: 75vh;
 }
 
