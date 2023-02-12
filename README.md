@@ -14,6 +14,12 @@
 
 [HeoMusic - 用音乐感染人心](https://music.zhheo.com/)
 
+## 基本操作
+
+`Space空格键`：暂停/播放音乐
+`上/下方向键`：增加/减少音量
+`左/右方向键`：上一曲/下一曲
+
 ## 参与开发
 
 [@张洪Heo](https://github.com/zhheo)

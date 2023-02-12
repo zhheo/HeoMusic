@@ -1,4 +1,5 @@
 console.log("\n %c HeoMusic 开源静态音乐播放器 v1.1 %c https://github.com/zhheo/HeoMusic \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
+var volume = 0.8;
 
 var heo = {
   // 音乐节目切换背景
@@ -21,6 +22,8 @@ var heo = {
         // console.info(heoMusicBg);
         if (musiccover) {
           clearInterval(timer)
+          //初始化音量
+          document.querySelector('meting-js').aplayer.volume(0.8,true);
           // 绑定事件
           heo.addEventListenerChangeMusicBg();
         }
@@ -57,8 +60,33 @@ function extractValue(input) {
 
 //空格控制音乐
 document.addEventListener("keydown", function(event) {
+  //暂停开启音乐
   if (event.code === "Space") {
     event.preventDefault();
     document.querySelector('meting-js').aplayer.toggle();
+  };
+  //切换下一曲
+  if (event.keyCode === 39) {
+    event.preventDefault();
+    document.querySelector('meting-js').aplayer.skipForward();
+  };
+  //切换上一曲
+  if (event.keyCode === 37) {
+    event.preventDefault();
+    document.querySelector('meting-js').aplayer.skipBack();
+  }
+  //增加音量
+  if (event.keyCode === 38) {
+    if (volume <= 1) {
+      volume += 0.1;
+      document.querySelector('meting-js').aplayer.volume(volume,true);
+    }
+  }
+  //减小音量
+  if (event.keyCode === 40) {
+    if (volume >= 0) {
+      volume += -0.1;
+      document.querySelector('meting-js').aplayer.volume(volume,true);
+    }
   }
 });
