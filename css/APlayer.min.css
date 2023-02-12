@@ -464,7 +464,7 @@
   right: 10px;
   width: 5px;
   height: 35px;
-  background: #aaa;
+  background: var(--heo-white-op);
   border-radius: 2.5px;
   overflow: hidden
 }

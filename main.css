@@ -323,6 +323,11 @@ body:has(#heoMusic-page) #nav-music {
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
+  max-width: 40%;
+}
+
+#heoMusic-page ol > li.aplayer-list-light span.aplayer-list-author {
+  max-width: 100%;
 }
 
 .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar {
@@ -389,7 +394,7 @@ body:has(#heoMusic-page) .aplayer .aplayer-info .aplayer-controller .aplayer-tim
     position: fixed;
     z-index: 1002;
     width: 100%;
-    top: -76%;
+    top: -230px;
     left: 0;
     background: var(--heo-white);
     height: auto;
@@ -402,12 +407,12 @@ body:has(#heoMusic-page) .aplayer .aplayer-info .aplayer-controller .aplayer-tim
     top: 0% !important;
   }
   #heoMusic-page ol {
-    max-height: 60vh !important;
-    padding-right: 0px;
+    max-height: 200px !important;
+    padding-right: 3px;
+    padding-left: 8px;
   }
   #heoMusic-page ol > li {
     display: flex;
-    margin: 0 10px;
   }
   #heoMusic-page ol > li span {
     color: var(--font-color);
@@ -500,6 +505,8 @@ body:has(#heoMusic-page) .aplayer .aplayer-info .aplayer-controller .aplayer-tim
     margin: auto;
     right: 0;
     left: 0;
+    width: 56px;
+    height: 56px;
   }
   #heoMusic-page .aplayer-info .aplayer-time .aplayer-icon-forward {
     margin: auto;
@@ -509,16 +516,25 @@ body:has(#heoMusic-page) .aplayer .aplayer-info .aplayer-controller .aplayer-tim
   #heoMusic-page .aplayer-info .aplayer-time .aplayer-icon-order {
     position: absolute;
     left: 22px;
+    width: 24px;
+    height: 24px;
+    opacity: 0.4;
   }
   #heoMusic-page .aplayer-info .aplayer-time .aplayer-icon-loop {
     position: absolute;
     right: 25px;
+    width: 24px;
+    height: 24px;
+    opacity: 0.4;
   }
   #heoMusic-page .aplayer-info .aplayer-time .aplayer-icon-menu {
     display: inline;
     position: absolute;
     right: 30px;
     top: -100px;
+    width: 24px;
+    height: 24px;
+    opacity: 0.4;
   }
   #heoMusic-page .aplayer-volume-bar-wrap {
     bottom: 0px;

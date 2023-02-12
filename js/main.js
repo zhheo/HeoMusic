@@ -35,3 +35,4 @@ var heo = {
 
 // 调用
 heo.changeMusicBg(false);
+
