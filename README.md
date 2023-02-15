@@ -18,21 +18,29 @@
 
 ## 修改歌单
 
-### 使用URL参数（推荐）
-
-HeoMusic支持URL参数
-
 `id`：歌单的id
 
 `server`：歌单的服务商，例如`netease`,`tencent`,`kugou`,`xiami`,`baidu`
+
+### 使用URL参数（推荐）
+
+HeoMusic支持URL参数 `https://music.zhheo.com/?id=`+ id +`&server=` + server
 
 例如：https://music.zhheo.com/?id=8668419170&server=tencent
 
 ### 修改HTML的方法（需要自行搭建）
 
-请根据[MetingJS规则](https://github.com/metowolf/MetingJS)编辑`index.html`的相关代码
+编辑`index.html`的相关代码，填写歌单id和服务商
 
 ![修改id和server](/img/help.webp)
+
+直接访问首页`index.html`即可
+
+## 浏览器支持
+
+要求chrome或基于Chromium的v100以上浏览器
+
+兼容Safari浏览器
 
 ## 参与开发
 
