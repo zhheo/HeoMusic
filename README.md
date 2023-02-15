@@ -30,7 +30,7 @@ HeoMusic支持URL参数
 
 ### 修改HTML的方法（需要自行搭建）
 
-请根据[MetingJS规则](https://github.com/metowolf/MetingJS)编辑`index.html`的Meting-js相关代码
+请根据[MetingJS规则](https://github.com/metowolf/MetingJS)编辑`index.html`的相关代码
 
 ![修改id和server](/img/help.webp)
 

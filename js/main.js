@@ -1,4 +1,4 @@
-console.log("\n %c HeoMusic 开源静态音乐播放器 v1.3 %c https://github.com/zhheo/HeoMusic \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
+console.log("\n %c HeoMusic 开源静态音乐播放器 v1.4 %c https://github.com/zhheo/HeoMusic \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
 var volume = 0.8;
 
 // 获取地址栏参数
@@ -50,14 +50,15 @@ var heo = {
       heoMusicPage.innerHTML = `<meting-js id="${id}" server=${server} type="playlist" mutex="true" preload="auto" order="random"></meting-js>`;
     }else {
       console.log("无自定义内容")
-      heoMusicPage.innerHTML = '<meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="auto" order="random"></meting-js>';
+      heoMusicPage.innerHTML = `<meting-js id="${userId}" server="${userServer}" type="playlist" mutex="true" preload="auto" order="random"></meting-js>`;
     }
+    heo.changeMusicBg(false);
   }
 }
 
 // 调用
-heo.changeMusicBg(false);
 heo.getCustomPlayList();
+
 
 // 改进vh
 const vh = window.innerHeight * 1;
@@ -68,7 +69,7 @@ window.addEventListener('resize', () => {
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
 
-//获取url
+//获取图片url
 function extractValue(input) {
   var valueRegex = /\("([^\s]+)"\)/g;
   var match = valueRegex.exec(input);
