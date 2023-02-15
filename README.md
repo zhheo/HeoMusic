@@ -33,9 +33,14 @@ HeoMusic支持URL参数
 请根据[MetingJS规则](https://github.com/metowolf/MetingJS)编辑`index.html`的Meting-js相关代码
 
 ![修改id和server](/img/help.webp)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fzhheo%2FHeoMusic.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fzhheo%2FHeoMusic?ref=badge_shield)
 
 ## 参与开发
 
 [@张洪Heo](https://github.com/zhheo)
 [@anzhiyu](https://github.com/anzhiyu-c)
 [@Glowed](https://github.com/Glowed)
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fzhheo%2FHeoMusic.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fzhheo%2FHeoMusic?ref=badge_large)
