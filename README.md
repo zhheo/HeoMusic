@@ -26,7 +26,9 @@ HeoMusic支持URL参数
 
 `server`：歌单的服务商，例如`netease`,`tencent`,`kugou`,`xiami`,`baidu`
 
-### 修改HTML的方法
+例如：https://music.zhheo.com/?id=8668419170&server=tencent
+
+### 修改HTML的方法（需要自行搭建）
 
 请根据[MetingJS规则](https://github.com/metowolf/MetingJS)编辑`index.html`的Meting-js相关代码
 
