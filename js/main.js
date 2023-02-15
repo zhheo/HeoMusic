@@ -1,6 +1,10 @@
 console.log("\n %c HeoMusic 开源静态音乐播放器 v1.2 %c https://github.com/zhheo/HeoMusic \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
 var volume = 0.8;
 
+// 获取地址栏参数
+// 创建URLSearchParams对象并传入URL中的查询字符串
+const params = new URLSearchParams(window.location.search);
+
 var heo = {
   // 音乐节目切换背景
   changeMusicBg: function (isChangeBg = true) {
@@ -37,10 +41,23 @@ var heo = {
       // console.info('player loadeddata');
     });
   },
+  getCustomPlayList: function() {
+    const heoMusicPage = document.getElementById("heoMusic-page");
+    if (params.get("id") && params.get("server")) {
+      console.log("获取到自定义内容")
+      var id = params.get("id")
+      var server = params.get("server")
+      heoMusicPage.innerHTML = `<meting-js id="${id}" server=${server} type="playlist" mutex="true" preload="auto" order="random"></meting-js>`;
+    }else {
+      console.log("无自定义内容")
+      heoMusicPage.innerHTML = '<meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="auto" order="random"></meting-js>';
+    }
+  }
 }
 
 // 调用
 heo.changeMusicBg(false);
+heo.getCustomPlayList();
 
 // 改进vh
 const vh = window.innerHeight * 1;
