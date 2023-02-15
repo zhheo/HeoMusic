@@ -39,3 +39,7 @@ HeoMusic支持URL参数
 [@张洪Heo](https://github.com/zhheo)
 [@anzhiyu](https://github.com/anzhiyu-c)
 [@Glowed](https://github.com/Glowed)
+
+## 许可
+
+项目中包含的Aplayer及MetingJS的修改版本，他们均使用MIT协议
