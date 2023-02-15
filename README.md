@@ -24,7 +24,7 @@
 
 ### Server
 
-歌单的服务商，例如`netease`,`tencent`,`kugou`,`xiami`,`baidu`
+歌单的服务商，例如`netease`（网易云音乐）,`tencent`（腾讯）,`kugou`（酷狗）,`xiami`（小米音乐）,`baidu`（百度音乐）
 
 ### 使用URL参数（推荐）
 
