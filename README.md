@@ -18,7 +18,7 @@
 
 ## 修改歌单
 
-`id`：歌单的id
+`id`：歌单的id，可以从音乐歌单分享的链接中获取，例如`https://y.qq.com/n/ryqq/playlist/8668419170`中，id为`8668419170`
 
 `server`：歌单的服务商，例如`netease`,`tencent`,`kugou`,`xiami`,`baidu`
 
