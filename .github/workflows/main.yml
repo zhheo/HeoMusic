@@ -46,17 +46,6 @@ jobs:
           hexo clean
           hexo generate
 
-      - name: 部署到github pages
-        run: |
-          git config --global user.name "ConstOwn"
-          git config --global user.email "xxxxxx@foxmail.com"
-          # git clone https://github.com/xxxxx/xxxx.github.io.git .deploy_git
-          # 此处务必用HTTPS链接。SSH链接可能有权限报错的隐患
-          # =====注意.deploy_git前面有个空格=====
-          # 这行指令的目的是clone博客静态文件仓库，防止Hexo推送时覆盖整个静态文件仓库，而是只推送有更改的文件
-          # 我注释掉了是为了刷新整个仓库，也可以选择不注释掉，但是可能出现没有识别到的情况
-          hexo deploy
-
       - name: 部署到云服务器
         uses: cross-the-world/scp-pipeline@master
         with:
@@ -64,5 +53,5 @@ jobs:
           user: ${{ secrets.USER_NAME }}
           pass: ${{ secrets.USER_PASS }}
           connect_timeout: 10s
-          local: './.deploy_git/*'
+          local: './*'
           remote: www/wwwroot/music.haiskyblog.top
