@@ -30,7 +30,11 @@
 
 HeoMusic支持URL参数 `https://music.zhheo.com/?id=`+ id +`&server=` + server
 
-例如：https://music.zhheo.com/?id=8668419170&server=tencent
+例如：
+
+**HeoMusicTop:** https://music.zhheo.com/?id=8668419170&server=tencent
+
+**鸡你太美:** https://music.zhheo.com/?id=7363728147&server=netease
 
 ### 修改HTML的方法（需要自行搭建）
 
