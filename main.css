@@ -26,14 +26,14 @@
   --heo-snackbar-time: 5s;
 }
 
-#page:has(#heoMusic-page) {
+#page {
   border: 0;
   box-shadow: none !important;
   padding: 0 !important;
   background: transparent !important;
 }
 
-body:has(#heoMusic-page) {
+body {
   background: rgb(13, 13, 13);
   position: relative;
 }
@@ -46,7 +46,7 @@ body:has(#heoMusic-page) {
   box-shadow: none;
   justify-content: space-between;
 }
-#page:has(#heoMusic-page) {
+#page {
   border: 0;
   box-shadow: none !important;
   padding: 0 !important;
@@ -82,11 +82,11 @@ body:has(#heoMusic-page) {
   height: 200%;
 }
 
-body:has(#heoMusic-page) #music_bg{
+body #music_bg{
   display: block;
 }
 
-body:has(#heoMusic-page) {
+body {
   background: rgb(13, 13, 13);
 }
 
@@ -104,14 +104,14 @@ body:has(#heoMusic-page) {
   box-shadow: none;
 }
 
-body:has(#heoMusic-page) #web_bg {
+body #web_bg {
   filter: blur(63px);
   opacity: 0.6;
   background-repeat: no-repeat;
   background-size: cover;
 }
-body:has(#heoMusic-page) #footer,
-body:has(#heoMusic-page) #nav-music {
+body #footer,
+body #nav-music {
   display: none;
 }
 
@@ -369,22 +369,22 @@ body:has(#heoMusic-page) #nav-music {
 }
 
 /* 导航栏 */
-.page:has(#heoMusic-page) #nav {
+.page #nav {
   backdrop-filter: none !important;
   background: 0 0 !important;
   border-bottom: none !important;
 }
 
-.page:has(#heoMusic-page) #page-header.not-top-img #nav a,
-.page:has(#heoMusic-page) #page-header #nav .back-home-button {
+.page #page-header.not-top-img #nav a,
+.page #page-header #nav .back-home-button {
   color: var(--heo-white);
 }
 
-body:has(#heoMusic-page) .s-sticker div {
+body .s-sticker div {
   color: var(--heo-white) !important;
 }
 
-body:has(#heoMusic-page) .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.aplayer-icon-loop {
+body .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.aplayer-icon-loop {
   margin-right: 7px;
 }
 
@@ -392,17 +392,17 @@ body:has(#heoMusic-page) .aplayer .aplayer-info .aplayer-controller .aplayer-tim
   color: var(--heo-white);
 }
 
-[data-theme="dark"] .page:has(#heoMusic-page) #page-header:before {
+[data-theme="dark"] .page #page-header:before {
   background-color: transparent;
 }
 
 /* **** 移动端样式 ***** */
 @media screen and (max-width: 768px) {
-  body:has(#heoMusic-page) #rightside {
+  body #rightside {
     display: none;
   }
-  body:has(#heoMusic-page) #content-inner,
-  body:has(#heoMusic-page) #page {
+  body #content-inner,
+  body #page {
     z-index: auto;
   }
   /* 歌曲列表 */
