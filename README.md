@@ -44,12 +44,6 @@ HeoMusic支持URL参数 `https://music.zhheo.com/?id=`+ id +`&server=` + server
 
 直接访问首页`index.html`即可
 
-## 浏览器支持
-
-要求chrome或基于Chromium的v100以上浏览器
-
-兼容Safari浏览器
-
 ## 参与开发
 
 [@张洪Heo](https://github.com/zhheo)
