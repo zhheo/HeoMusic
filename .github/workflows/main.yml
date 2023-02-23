@@ -1,0 +1,57 @@
+# 当有改动推送到master分支时，启动Action
+name: 自动部署
+
+on:
+  push:
+    branches:
+      - master #2020年10月后github新建仓库默认分支改为main，注意更改
+
+  release:
+    types:
+      - published
+
+jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检查分支
+        uses: actions/checkout@v2
+        with:
+          ref: master #2020年10月后github新建仓库默认分支改为main，注意更改
+
+      - name: 安装 Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+
+      - name: 安装 Hexo
+        run: |
+          export TZ='Asia/Shanghai'
+          npm install hexo-cli -g
+
+      - name: 缓存 Hexo
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: node_modules
+          key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
+
+      - name: 安装依赖
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          npm install --save
+
+      - name: 生成静态文件
+        run: |
+          hexo clean
+          hexo generate
+
+      - name: 部署到云服务器
+        uses: cross-the-world/scp-pipeline@master
+        with:
+          host: ${{ secrets.USER_HOST }}
+          user: ${{ secrets.USER_NAME }}
+          pass: ${{ secrets.USER_PASS }}
+          connect_timeout: 10s
+          local: './*'
+          remote: www/wwwroot/music.haiskyblog.top
