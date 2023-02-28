@@ -36,6 +36,8 @@ HeoMusic支持URL参数 `https://music.zhheo.com/?id=`+ id +`&server=` + server
 
 **鸡你太美:** https://music.zhheo.com/?id=7363728147&server=netease
 
+**青春回忆杀:** https://music.zhheo.com/?id=3947131&server=kugou
+
 ### 修改HTML的方法（需要自行搭建）
 
 编辑`index.html`的相关代码，填写歌单id和服务商
