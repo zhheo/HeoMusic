@@ -20,13 +20,17 @@
 
 ### ID
 
-歌单的id，可以从音乐歌单分享的链接中获取，例如`https://y.qq.com/n/ryqq/playlist/8668419170`中，id为`8668419170`
+播放列表的id，可以从音乐歌单分享的链接中获取，例如`https://y.qq.com/n/ryqq/playlist/8668419170`中，id为`8668419170`
 
 ### Server
 
-歌单的服务商，例如`netease`（网易云音乐）,`tencent`（腾讯）,`kugou`（酷狗）,`xiami`（小米音乐）,`baidu`（百度音乐）
+播放列表的服务商，例如`netease`（网易云音乐）,`tencent`（腾讯）,`kugou`（酷狗）,`xiami`（小米音乐）,`baidu`（百度音乐）
 
-### 使用URL参数（推荐）
+### Type(可选）
+
+播放列表的类型，例如`song`（单曲）, `playlist`（歌单，默认）, `album`（专辑）, `search`（搜索结果）, `artist`（歌手）
+
+## 使用URL参数（推荐）
 
 HeoMusic支持URL参数 `https://music.zhheo.com/?id=`+ id +`&server=` + server
 
@@ -36,7 +40,7 @@ HeoMusic支持URL参数 `https://music.zhheo.com/?id=`+ id +`&server=` + server
 
 **鸡你太美:** https://music.zhheo.com/?id=7363728147&server=netease
 
-### 修改HTML的方法（需要自行搭建）
+## 修改HTML的方法（需要自行搭建）
 
 编辑`index.html`的相关代码，填写歌单id和服务商
 
