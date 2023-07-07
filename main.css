@@ -157,7 +157,7 @@ body #nav-music {
 }
 
 #heoMusic-page .aplayer-info .aplayer-lrc {
-  padding-top: 80px;
+  padding-top: 240px;
   height: var(--vh);
   mask-image: linear-gradient(to bottom, #000, #000, #000, #000, #000, #000, #000, #000, #000, #000, #0000, #0000);
 }
