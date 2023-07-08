@@ -36,6 +36,7 @@
 body {
   background: rgb(13, 13, 13);
   position: relative;
+  overflow: hidden;
 }
 
 #heoMusic-page meting-js .aplayer{
@@ -398,6 +399,27 @@ body .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.apla
 
 [data-theme="dark"] .page #page-header:before {
   background-color: transparent;
+}
+
+.aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap:hover .aplayer-volume-bar-wrap {
+  height: 120px;
+  border-radius: 40px;
+  width: 30px;
+}
+
+.aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap {
+  width: 30px;
+}
+
+.aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap .aplayer-volume-bar {
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+
+.aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap .aplayer-volume-bar .aplayer-volume {
+  width: 100%;
+  background: var(--heo-white)!important;
 }
 
 /* **** 移动端样式 ***** */
