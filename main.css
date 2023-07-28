@@ -271,6 +271,14 @@ body #nav-music {
   margin-left: 15px;
 }
 
+#heoMusic-page .aplayer-info .aplayer-time .aplayer-icon::before {
+  content: '';
+  position: absolute;
+  padding: 8px;
+  top: -6px;
+  width: 8px;
+}
+
 #heoMusic-page .aplayer-info .aplayer-time .aplayer-icon-menu {
   display: none;
 }
