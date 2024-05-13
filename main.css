@@ -39,7 +39,16 @@ body {
   overflow: hidden;
 }
 
-#heoMusic-page meting-js .aplayer{
+#heoMusic-page .aplayer{
+  display: flex;
+  flex-direction: row-reverse;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  box-shadow: none;
+  justify-content: space-between;
+}
+
+#heoMusic-page.localMusic {
   display: flex;
   flex-direction: row-reverse;
   background: rgba(0, 0, 0, 0);
@@ -97,7 +106,15 @@ body {
   margin-top: 60px;
 }
 
-#heoMusic-page meting-js .aplayer {
+#heoMusic-page .aplayer {
+  display: flex;
+  flex-direction: row-reverse;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  box-shadow: none;
+}
+
+#heoMusic-page.localMusic {
   display: flex;
   flex-direction: row-reverse;
   background: rgba(0, 0, 0, 0);
@@ -295,6 +312,7 @@ body #nav-music {
   height: 100%;
   min-width: 200px;
 }
+
 #heoMusic-page ol {
   max-height: calc(var(--vh) - 170px)!important;
 }
@@ -594,6 +612,10 @@ body .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.apla
     right: 7px;
   }
   #heoMusic-page .aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap {
+    left: -66px;
+    display: none;
+  }
+  #heoMusic-page.localMusic .aplayer-info .aplayer-controller .aplayer-volume-wrap {
     left: -66px;
     display: none;
   }

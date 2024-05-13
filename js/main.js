@@ -1,4 +1,20 @@
 console.log("\n %c HeoMusic 开源静态音乐播放器 v1.5 %c https://github.com/zhheo/HeoMusic \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
+var local = false;
+
+// 检查 localMusic 是否为数组且为空，或者是否未定义
+if (typeof localMusic === 'undefined' || !Array.isArray(localMusic) || localMusic.length === 0) {
+  // 如果 localMusic 为空数组或未定义，加载 Meting2.min.js
+  var script = document.createElement('script');
+  script.src = './js/Meting2.min.js';
+  document.body.appendChild(script);
+} else {
+  // 否则加载 localEngine.min.js
+  var script = document.createElement('script');
+  script.src = './js/localEngine.min.js';
+  document.body.appendChild(script);
+  local = true;
+}
+
 var volume = 0.8;
 
 // 获取地址栏参数
@@ -27,7 +43,12 @@ var heo = {
         if (musiccover) {
           clearInterval(timer)
           //初始化音量
-          document.querySelector('meting-js').aplayer.volume(0.8,true);
+          if (local) {
+            ap.volume(0.8, true);
+          }else {
+            document.querySelector('meting-js').aplayer.volume(0.8,true);
+          }
+
           // 绑定事件
           heo.addEventListenerChangeMusicBg();
         }
@@ -36,10 +57,18 @@ var heo = {
   },
   addEventListenerChangeMusicBg: function () {
     const heoMusicPage = document.getElementById("heoMusic-page");
-    heoMusicPage.querySelector("meting-js").aplayer.on('loadeddata', function () {
-      heo.changeMusicBg();
-      // console.info('player loadeddata');
+    if (local) {
+      ap.on('loadeddata', function () {
+        heo.changeMusicBg();
     });
+    }else {
+      heoMusicPage.querySelector("meting-js").aplayer.on('loadeddata', function () {
+        heo.changeMusicBg();
+        // console.info('player loadeddata');
+      });
+    }
+
+    
   },
   getCustomPlayList: function() {
     const heoMusicPage = document.getElementById("heoMusic-page");
@@ -83,30 +112,55 @@ document.addEventListener("keydown", function(event) {
   //暂停开启音乐
   if (event.code === "Space") {
     event.preventDefault();
-    document.querySelector('meting-js').aplayer.toggle();
+    if (local) {
+      ap.toggle();
+    }else {
+      document.querySelector('meting-js').aplayer.toggle();
+    }
+
   };
   //切换下一曲
   if (event.keyCode === 39) {
     event.preventDefault();
-    document.querySelector('meting-js').aplayer.skipForward();
+    if (local) {
+      ap.skipForward();
+    }else {
+      document.querySelector('meting-js').aplayer.skipForward();
+    }
+
   };
   //切换上一曲
   if (event.keyCode === 37) {
     event.preventDefault();
-    document.querySelector('meting-js').aplayer.skipBack();
+    if (local) {
+ap.skipBack();
+    }else {
+      document.querySelector('meting-js').aplayer.skipBack();
+    }
+
   }
   //增加音量
   if (event.keyCode === 38) {
     if (volume <= 1) {
       volume += 0.1;
-      document.querySelector('meting-js').aplayer.volume(volume,true);
+      if (local) {
+        ap.volume(volume,true);
+      }else {
+        document.querySelector('meting-js').aplayer.volume(volume,true);
+      }
+
     }
   }
   //减小音量
   if (event.keyCode === 40) {
     if (volume >= 0) {
       volume += -0.1;
-      document.querySelector('meting-js').aplayer.volume(volume,true);
+      if (local) {
+        ap.volume(volume,true);
+      }else {
+        document.querySelector('meting-js').aplayer.volume(volume,true);
+      }
+      
     }
   }
 });

@@ -16,7 +16,7 @@
 
 `左/右方向键`：上一曲/下一曲
 
-## 修改歌单/私有部署与配置
+## 修改歌单/私有部署与配置（适用于在线音乐）
 
 ### ID
 
@@ -40,13 +40,33 @@ HeoMusic支持URL参数 `https://music.zhheo.com/?id=`+ id +`&server=` + server
 
 **鸡你太美:** https://music.zhheo.com/?id=2762963245&server=netease
 
-## 修改HTML的方法（需要自行搭建）
+## 修改HTML的方法（适用于在线音乐和本地音乐）
 
 编辑`index.html`的相关代码，填写歌单id和服务商
 
 ![修改id和server](/img/help.webp)
 
 直接访问首页`index.html`即可
+
+本地音乐需要添加loaclMusic数组，它的形式类似于：
+
+```
+  var localMusic = [{
+      name: '重生之我在异乡为异客',
+      artist: '王睿卓',
+      url: '/music/重生之我在异乡为异客.mp3',
+      cover: '/music/重生之我在异乡为异客.png',
+      lrc: '/music/重生之我在异乡为异客.lrc'
+  },
+  {
+      name: '落',
+      artist: '唐伯虎',
+      url: '/music/落.mp3',
+      cover: '/music/落.png',
+      lrc: '/music/落.lrc'
+  }
+  ];
+```
 
 ## 参与开发
 
