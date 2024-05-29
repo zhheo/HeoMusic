@@ -1,12 +1,18 @@
 var encodedLocalMusic = localMusic.map(item => ({
   name: item.name,
   artist: item.artist,
-  url: encodeURIComponent(item.url),
-  cover: encodeURIComponent(item.cover),
-  lrc: encodeURIComponent(item.lrc)
+  url: encodeNonAscii(item.url),
+  cover: encodeNonAscii(item.cover),
+  lrc: encodeNonAscii(item.lrc)
 }));
 
 document.getElementById('heoMusic-page').classList.add('localMusic');
+
+function encodeNonAscii(str) {
+  return str.replace(/[^\x00-\x7F]/g, function(c) {
+    return encodeURIComponent(c);
+  });
+}
 
 const ap = new APlayer({
   container: document.getElementById('heoMusic-page'),
