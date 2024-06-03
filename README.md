@@ -54,6 +54,37 @@
   ];
 ```
 
+### remoteMusic（可选）
+
+使用json格式的链接来进行读取localMusic，会覆盖localMusic的设置。
+
+例如：
+
+```
+var remoteMusic = './music.json';
+```
+
+musicjson内容例如：
+
+```
+[
+  {
+    "name": "重生之我在异乡为异客",
+    "artist": "王睿卓",
+    "url": "/music/重生之我在异乡为异客.mp3",
+    "cover": "/music/重生之我在异乡为异客.png",
+    "lrc": "/music/重生之我在异乡为异客.lrc"
+  },
+  {
+    "name": "落",
+    "artist": "唐伯虎",
+    "url": "/music/落.mp3",
+    "cover": "/music/落.png",
+    "lrc": "/music/落.lrc"
+  }
+]
+```
+
 ## 使用URL参数（推荐）
 
 HeoMusic支持URL参数 `https://music.zhheo.com/?id=`+ id +`&server=` + server

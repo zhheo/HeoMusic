@@ -1,18 +1,36 @@
 console.log("\n %c HeoMusic 开源静态音乐播放器 v1.5 %c https://github.com/zhheo/HeoMusic \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
 var local = false;
 
-// 检查 localMusic 是否为数组且为空，或者是否未定义
-if (typeof localMusic === 'undefined' || !Array.isArray(localMusic) || localMusic.length === 0) {
-  // 如果 localMusic 为空数组或未定义，加载 Meting2.min.js
-  var script = document.createElement('script');
-  script.src = './js/Meting2.min.js';
-  document.body.appendChild(script);
+if (typeof remoteMusic !== 'undefined' && remoteMusic) {
+  fetch(remoteMusic)
+    .then(response => response.json())
+    .then(data => {
+      if (Array.isArray(data)) {
+        localMusic = data;
+      }
+      loadMusicScript();
+    })
+    .catch(error => {
+      console.error('Error fetching remoteMusic:', error);
+      loadMusicScript();
+    });
 } else {
-  // 否则加载 localEngine.min.js
-  var script = document.createElement('script');
-  script.src = './js/localEngine.min.js';
-  document.body.appendChild(script);
-  local = true;
+  loadMusicScript();
+}
+
+function loadMusicScript() {
+  if (typeof localMusic === 'undefined' || !Array.isArray(localMusic) || localMusic.length === 0) {
+    // 如果 localMusic 为空数组或未定义，加载 Meting2.min.js
+    var script = document.createElement('script');
+    script.src = './js/Meting2.min.js';
+    document.body.appendChild(script);
+  } else {
+    // 否则加载 localEngine.min.js
+    var script = document.createElement('script');
+    script.src = './js/localEngine.min.js';
+    document.body.appendChild(script);
+    local = true;
+  }
 }
 
 var volume = 0.8;
