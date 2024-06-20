@@ -1,6 +1,16 @@
 console.log("\n %c HeoMusic 开源静态音乐播放器 v1.5 %c https://github.com/zhheo/HeoMusic \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
 var local = false;
 
+if (typeof userId === 'undefined') {
+  var userId = "8152976493"; // 替换为实际的默认值
+}
+if (typeof userServer === 'undefined') {
+  var userServer = "netease"; // 替换为实际的默认值
+}
+if (typeof userType === 'undefined') {
+  var userType = "playlist"; // 替换为实际的默认值
+}
+
 if (typeof remoteMusic !== 'undefined' && remoteMusic) {
   fetch(remoteMusic)
     .then(response => response.json())
