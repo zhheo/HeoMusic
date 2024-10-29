@@ -184,7 +184,7 @@ body #nav-music {
   font-size: 36px;
   line-height: 44px;
   height: 44px;
-  margin-bottom: 36px;
+  margin-bottom: 20px;
   color: #fff;
   font-weight: bold;
   text-align: left;
@@ -193,6 +193,9 @@ body #nav-music {
   transition: all 0.9s cubic-bezier(0.56, 0.17, 0.22, 0.76);
   user-select:none;
   text-shadow: 0px 2px 0px #ffffff00;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 #heoMusic-page .aplayer-info .aplayer-lrc p.aplayer-lrc-current {
   filter: blur(0px);
@@ -204,6 +207,11 @@ body #nav-music {
 
 #heoMusic-page .aplayer-info .aplayer-lrc p.aplayer-lrc-current:first-child {
   text-shadow: 0px 2px 16px #ffffff00;
+}
+
+#heoMusic-page .aplayer-info .aplayer-lrc p:hover {
+  filter: blur(0px);
+  background: #ffffff47;
 }
 
 @media screen and (min-width: 768px) {

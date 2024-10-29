@@ -67,7 +67,6 @@ var heo = {
       let timer = setInterval(()=>{
         const musiccover = document.querySelector("#heoMusic-page .aplayer-pic");
         // 确保player加载完成
-        // console.info(heoMusicBg);
         if (musiccover) {
           clearInterval(timer)
           //初始化音量
@@ -79,6 +78,8 @@ var heo = {
 
           // 绑定事件
           heo.addEventListenerChangeMusicBg();
+          // 添加歌词点击事件
+          heo.addLyricClickEvent();
         }
       }, 100)
     }
@@ -112,7 +113,63 @@ var heo = {
       heoMusicPage.innerHTML = `<meting-js id="${userId}" server="${userServer}" type="${userType}" mutex="true" preload="auto" order="random"></meting-js>`;
     }
     heo.changeMusicBg(false);
-  }
+  },
+  bindEvents: function () {
+    var e = this;
+    // ... 现有代码 ...
+
+    // 添加歌词点击事件
+    if (this.lrc) {
+        this.template.lrc.addEventListener('click', function (event) {
+            // 确保点击的是歌词 p 元素
+            var target = event.target;
+            if (target.tagName.toLowerCase() === 'p') {
+                // 获取所有歌词元素
+                var lyrics = e.template.lrc.getElementsByTagName('p');
+                // 找到被点击歌词的索引
+                for (var i = 0; i < lyrics.length; i++) {
+                    if (lyrics[i] === target) {
+                        // 获取对应时间并跳转
+                        if (e.lrc.current[i]) {
+                            var time = e.lrc.current[i][0];
+                            e.seek(time);
+                            if (e.paused) {
+                                e.play();
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+        });
+    }
+
+    // ... 现有代码 ...
+  },
+  // 添加新方法处理歌词点击
+  addLyricClickEvent: function() {
+    const lrcContent = document.querySelector('.aplayer-lrc-contents');
+    
+    if (lrcContent) {
+        lrcContent.addEventListener('click', function(event) {
+            if (event.target.tagName.toLowerCase() === 'p') {
+                const lyrics = lrcContent.getElementsByTagName('p');
+                for (let i = 0; i < lyrics.length; i++) {
+                    if (lyrics[i] === event.target) {
+                        // 获取当前播放器实例
+                        const player = local ? ap : document.querySelector('meting-js').aplayer;
+                        // 使用播放器内部的歌词数据
+                        if (player.lrc.current[i]) {
+                            const time = player.lrc.current[i][0];
+                            player.seek(time);
+                        }
+                        break;
+                    }
+                }
+            }
+        });
+    }
+  },
 }
 
 // 调用
