@@ -185,24 +185,57 @@ body #nav-music {
   line-height: 44px;
   height: 44px;
   margin-bottom: 20px;
+  padding: 8px;
+  border-radius: 8px;
   color: #fff;
   font-weight: bold;
   text-align: left;
   filter: blur(2px);
   opacity: 0.3;
-  transition: all 0.9s cubic-bezier(0.56, 0.17, 0.22, 0.76);
-  user-select:none;
+  transition: all 0.9s cubic-bezier(0.56, 0.17, 0.22, 0.76),
+              height 0.3s ease,
+              max-height 0.3s ease;
+  user-select: none;
   text-shadow: 0px 2px 0px #ffffff00;
-  padding: 8px;
-  border-radius: 8px;
+  position: relative;
   cursor: pointer;
+  max-height: 44px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
+
+#heoMusic-page .aplayer-info .aplayer-lrc p::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: 0;
+  bottom: 0;
+  background: #ffffff47;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+  z-index: -1;
+}
+
+#heoMusic-page .aplayer-info .aplayer-lrc p:hover::after {
+  opacity: 1;
+}
+
 #heoMusic-page .aplayer-info .aplayer-lrc p.aplayer-lrc-current {
   filter: blur(0px);
   opacity: 1;
-  transition: all 0.3s cubic-bezier(0.56, 0.17, 0.22, 0.76), text-shadow 8s 4s ease-in;
-  height: fit-content;
+  transition: all 0.3s cubic-bezier(0.56, 0.17, 0.22, 0.76), 
+              text-shadow 8s 4s ease-in,
+              height 0.3s ease,
+              max-height 0.3s ease,
+              opacity 0.3s ease;
+  height: auto;
+  max-height: 200px;
   text-shadow: 0px 2px 16px #ffffff94;
+  white-space: normal;
+  text-overflow: clip;
 }
 
 #heoMusic-page .aplayer-info .aplayer-lrc p.aplayer-lrc-current:first-child {
@@ -679,4 +712,12 @@ body .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.apla
   .aplayer .aplayer-lrc {
     overflow: inherit;
   }
+}
+
+/* 添加非当前歌词的过渡类 */
+#heoMusic-page .aplayer-info .aplayer-lrc p:not(.aplayer-lrc-current) {
+  transition: all 0.3s cubic-bezier(0.56, 0.17, 0.22, 0.76),
+              height 0.3s ease,
+              max-height 0.3s ease,
+              opacity 0.3s ease;
 }
