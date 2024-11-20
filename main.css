@@ -108,10 +108,20 @@ body {
 
 #heoMusic-page .aplayer {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   background: rgba(0, 0, 0, 0);
   border: none;
   box-shadow: none;
+  height: calc(100dvh - 170px);
+}
+
+.aplayer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 40%;
+  height: 100%;
 }
 
 #heoMusic-page.localMusic {
@@ -135,7 +145,7 @@ body #nav-music {
 
 #heoMusic-page .aplayer-body {
   width: 70%;
-  height: 75vh;
+  height: 100%;
 }
 
 #heoMusic-page ol > li:hover {
@@ -144,15 +154,12 @@ body #nav-music {
 }
 #heoMusic-page .aplayer-pic {
   float: none;
-  width: 60px;
-  height: 60px;
+  width: 200px;
+  height: 200px;
   border-radius: 12px;
-  margin: auto;
-  bottom: 30px;
-  left: 90px;
-  position: fixed;
   z-index: 999;
-  display: none;
+  position: relative;
+  background-size: cover;
 }
 
 #heoMusic-page .aplayer-info {
@@ -175,9 +182,7 @@ body #nav-music {
 }
 
 #heoMusic-page .aplayer-info .aplayer-lrc {
-  padding-top: 240px;
-  height: var(--vh);
-  mask-image: linear-gradient(to bottom, #000, #000, #000, #000, #000, #000, #000, #000, #000, #000, #0000, #0000);
+  height: calc(100dvh - 200px);
   overflow-y: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -247,6 +252,7 @@ body #nav-music {
 }
 
 .aplayer .aplayer-lrc .aplayer-lrc-contents {
+  padding-top: 200px;
   width: 90%;
   margin-left: auto;
   transition: all .5s cubic-bezier(0.49, 0.21, 0.22, 0.84);
@@ -335,15 +341,9 @@ body #nav-music {
 }
 
 #heoMusic-page .aplayer-list {
-  width: 40%;
-  max-width: 480px;
-  max-height: none !important;
-  height: 100%;
+  width: 100%;
+  height: calc(100% - 232px);
   min-width: 200px;
-}
-
-#heoMusic-page ol {
-  max-height: calc(var(--vh) - 170px)!important;
 }
  
 #heoMusic-page ol::-webkit-scrollbar-thumb {
@@ -648,15 +648,10 @@ body .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.apla
     left: -66px;
     display: none;
   }
-  #heoMusic-page .aplayer-info .aplayer-lrc {
-    padding-top: 100px;
-  }
-
   #heoMusic-page .aplayer-info .aplayer-lrc p {
     font-size: 32px;
     margin-bottom: 38px;
     line-height: 42px;
-    height: 42px;
   }
   #heoMusic-page .aplayer-info .aplayer-music {
     display: flex;
@@ -699,6 +694,10 @@ body .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.apla
 
   .aplayer .aplayer-lrc {
     overflow: inherit;
+  }
+
+  #heoMusic-page .aplayer-pic {
+    display: none;
   }
 }
 

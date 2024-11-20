@@ -242,10 +242,6 @@
 .aplayer .aplayer-pic {
   position: relative;
   float: left;
-  height: 66px;
-  width: 66px;
-  background-size: cover;
-  background-position: 50%;
   transition: all .3s ease;
   cursor: pointer
 }
@@ -489,7 +485,6 @@
   position: relative;
   height: 30px;
   text-align: center;
-  overflow: hidden;
   margin: -10px 0 7px
 }
 
@@ -522,7 +517,6 @@
   margin: 0;
   transition: all .5s ease-out;
   opacity: .4;
-  overflow: hidden
 }
 
 .aplayer .aplayer-lrc p.aplayer-lrc-current {
@@ -561,7 +555,8 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow-y: auto
+  overflow-y: auto;
+  height: 100%;
 }
 
 .aplayer .aplayer-list ol::-webkit-scrollbar {

@@ -104,7 +104,7 @@ var heo = {
     
     if (lrcContent && currentLyric) {
       let startScrollTop = lrcContent.scrollTop;
-      let targetScrollTop = currentLyric.offsetTop;
+      let targetScrollTop = currentLyric.offsetTop - 180; // 目标位置靠下200px
       let distance = targetScrollTop - startScrollTop;
       let duration = 600;
       let startTime = null;
@@ -145,7 +145,7 @@ var heo = {
   },
   bindEvents: function () {
     var e = this;
-    // 添加歌词点击事件
+    // 添加歌词点击��件
     if (this.lrc) {
         this.template.lrc.addEventListener('click', function (event) {
             // 确保点击的是歌词 p 元素
