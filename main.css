@@ -186,6 +186,7 @@ body #nav-music {
   overflow-y: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  mask-image: linear-gradient(to top, #000, #000, #000, #000, #0000, #0000 calc(100% + 200px));
 }
 
 #heoMusic-page .aplayer-info .aplayer-lrc::-webkit-scrollbar {
@@ -489,18 +490,18 @@ body .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.apla
   /* 歌曲列表 */
   #heoMusic-page .aplayer-list {
     position: fixed;
-    z-index: 1002;
+    z-index: 1003; /* 提高z-index以确保列表在遮罩之上 */
     width: 100%;
-    bottom: 0px;
+    top: 0px;
     left: 0;
     background: var(--heo-white);
-    border-radius: 16px 16px 0px 0px;
+    border-radius: 0px 0px 16px 16px;
     padding: 15px 0px;
     max-width: 100%;
-    height: calc(var(--vh) - 200px);
+    height: calc(var(--vh) - 240px);
   }
   #heoMusic-page .aplayer-list.aplayer-list-hide {
-    bottom: -100% !important;
+    top: -100% !important;
   }
   #heoMusic-page ol {
     max-height: 100%!important;
@@ -567,7 +568,7 @@ body .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.apla
   }
   #heoMusic-page .aplayer-info .aplayer-lrc {
     margin-top: 0;
-    height: auto;
+    height: calc(100dvh - 100px);
     min-height: 100%;
     mask-image: linear-gradient(to bottom, #000, #000, #000, #000, #0000, #0000);
   }
@@ -650,7 +651,6 @@ body .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.apla
   }
   #heoMusic-page .aplayer-info .aplayer-lrc p {
     font-size: 32px;
-    margin-bottom: 38px;
     line-height: 42px;
   }
   #heoMusic-page .aplayer-info .aplayer-music {
