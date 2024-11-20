@@ -103,11 +103,28 @@ var heo = {
     const currentLyric = document.querySelector('.aplayer-lrc-current');
     
     if (lrcContent && currentLyric) {
+      let startScrollTop = lrcContent.scrollTop;
       let targetScrollTop = currentLyric.offsetTop;
-      lrcContent.scrollTo({
-        top: targetScrollTop,
-        behavior: 'smooth'
-      });
+      let distance = targetScrollTop - startScrollTop;
+      let duration = 600;
+      let startTime = null;
+
+      function cubicBezier(t) {
+        return 3 * (1 - t) * (1 - t) * t * 0.95 + 3 * (1 - t) * t * t * 0.99 + t * t * t;
+      }
+
+      function animateScroll(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        let timeElapsed = currentTime - startTime;
+        let progress = Math.min(timeElapsed / duration, 1);
+        let easeProgress = cubicBezier(progress);
+        lrcContent.scrollTop = startScrollTop + (distance * easeProgress);
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animateScroll);
+        }
+      }
+
+      requestAnimationFrame(animateScroll);
     }
   },
 
