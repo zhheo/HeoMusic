@@ -112,3 +112,9 @@ HeoMusic支持URL参数 `https://music.zhheo.com/?id=`+ id +`&server=` + server
 ## 许可
 
 项目中包含的Aplayer及MetingJS的修改版本，他们均使用MIT协议
+
+## 打赏
+
+如果你喜欢这个项目，不妨支持一下作者，让作者更有动力更新！
+
+[去打赏作者](https://rewards.zhheo.com/)
