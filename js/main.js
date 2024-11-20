@@ -96,9 +96,21 @@ var heo = {
         // console.info('player loadeddata');
       });
     }
-
-    
   },
+
+  scrollLyric: function() {
+    const lrcContent = document.querySelector('.aplayer-lrc');
+    const currentLyric = document.querySelector('.aplayer-lrc-current');
+    
+    if (lrcContent && currentLyric) {
+      let targetScrollTop = currentLyric.offsetTop;
+      lrcContent.scrollTo({
+        top: targetScrollTop,
+        behavior: 'smooth'
+      });
+    }
+  },
+
   getCustomPlayList: function() {
     const heoMusicPage = document.getElementById("heoMusic-page");
     const playlistType = params.get("type") || "playlist";
@@ -116,8 +128,6 @@ var heo = {
   },
   bindEvents: function () {
     var e = this;
-    // ... 现有代码 ...
-
     // 添加歌词点击事件
     if (this.lrc) {
         this.template.lrc.addEventListener('click', function (event) {
@@ -143,8 +153,6 @@ var heo = {
             }
         });
     }
-
-    // ... 现有代码 ...
   },
   // 添加新方法处理歌词点击
   addLyricClickEvent: function() {
