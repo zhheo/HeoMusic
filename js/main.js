@@ -104,7 +104,7 @@ var heo = {
     
     if (lrcContent && currentLyric) {
       let startScrollTop = lrcContent.scrollTop;
-      let targetScrollTop = currentLyric.offsetTop - window.innerHeight * 0.25; // 目标位置在30%的dvh位置
+      let targetScrollTop = currentLyric.offsetTop - (window.innerHeight - 150 ) * 0.3; // 目标位置在30%的dvh位置
       let distance = targetScrollTop - startScrollTop;
       let duration = 600;
       let startTime = null;
@@ -187,6 +187,10 @@ var heo = {
                         if (player.lrc.current[i]) {
                             const time = player.lrc.current[i][0];
                             player.seek(time);
+                            // 如果当前是暂停状态,则恢复播放
+                            if (player.paused) {
+                                player.play();
+                            }
                         }
                         event.stopPropagation(); // 阻止事件冒泡
                         break;
