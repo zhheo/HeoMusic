@@ -253,7 +253,7 @@ body #nav-music {
 }
 
 .aplayer .aplayer-lrc .aplayer-lrc-contents {
-  padding-top: 200px;
+  padding: 200px 0 400px 0;
   width: 90%;
   margin-left: auto;
   transition: all .5s cubic-bezier(0.49, 0.21, 0.22, 0.84);
