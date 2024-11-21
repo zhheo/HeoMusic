@@ -42,12 +42,6 @@
   height: 90px;
   width: 90px
 }
-
-.aplayer.aplayer-withlrc .aplayer-info {
-  margin-left: 90px;
-  height: 90px;
-}
-
 .aplayer.aplayer-withlrc .aplayer-lrc {
   display: block
 }
@@ -302,9 +296,6 @@
 }
 
 .aplayer .aplayer-info {
-  margin-left: 66px;
-  padding: 14px 7px 0 10px;
-  height: 66px;
   box-sizing: border-box
 }
 
