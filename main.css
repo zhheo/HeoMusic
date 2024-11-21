@@ -319,8 +319,8 @@ body #nav-music {
 }
 
 #heoMusic-page .aplayer-info .aplayer-time .aplayer-icon {
-  width: 2rem;
-  height: 2rem;
+  width: 26px;
+  height: 26px;
   margin-left: 15px;
 }
 
@@ -328,8 +328,10 @@ body #nav-music {
   content: '';
   position: absolute;
   padding: 8px;
-  top: -6px;
-  width: 8px;
+  bottom: -6px;
+  left: 3px;
+  width: 28px;
+  height: 150px;
 }
 
 #heoMusic-page .aplayer-info .aplayer-time .aplayer-icon-menu {

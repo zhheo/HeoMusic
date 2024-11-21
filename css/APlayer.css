@@ -433,13 +433,13 @@
 }
 
 .aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap:hover .aplayer-volume-bar-wrap {
-  height: 40px
+  height: 40px;
 }
 
 .aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap {
   position: absolute;
   bottom: 5px;
-  right: 6px;
+  right: 0;
   width: 25px;
   height: 0;
   z-index: 99;
