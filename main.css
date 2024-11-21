@@ -237,9 +237,13 @@ body #nav-music {
 }
 
 #heoMusic-page .aplayer-info .aplayer-lrc p:hover {
-  filter: blur(0px);
   background: #ffffff47;
 }
+
+#heoMusic-page .aplayer-info .aplayer-lrc p.aplayer-lrc-current:hover {
+  background: #ffffff1b;
+}
+
 
 @media screen and (min-width: 768px) {
   #heoMusic-page .aplayer-info .aplayer-lrc:hover p {
