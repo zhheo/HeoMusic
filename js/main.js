@@ -35,9 +35,9 @@ function loadMusicScript() {
     script.src = './js/Meting2.min.js';
     document.body.appendChild(script);
   } else {
-    // 否则加载 localEngine.min.js
+    // 否则加载 localEngine.js
     var script = document.createElement('script');
-    script.src = './js/localEngine.min.js';
+    script.src = './js/localEngine.js';
     document.body.appendChild(script);
     local = true;
   }
