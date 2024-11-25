@@ -492,13 +492,13 @@ body .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.apla
   #heoMusic-page .aplayer-list {
     position: fixed;
     z-index: 1003; /* 提高z-index以确保列表在遮罩之上 */
-    width: 100%;
+    width: 100vw;
     top: 0px;
     left: 0;
     background: var(--heo-white);
     border-radius: 0px 0px 16px 16px;
     padding: 15px 0px;
-    max-width: 100%;
+    max-width: 100vw;
     height: calc(var(--vh) - 240px);
   }
   #heoMusic-page .aplayer-list.aplayer-list-hide {
