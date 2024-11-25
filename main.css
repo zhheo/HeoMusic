@@ -114,6 +114,7 @@ body {
   gap: 32px;
   width: 40%;
   height: 100%;
+  max-width: 332px;
 }
 
 #heoMusic-page.localMusic {
@@ -146,8 +147,8 @@ body #nav-music {
 }
 #heoMusic-page .aplayer-pic {
   float: none;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border-radius: 12px;
   z-index: 999;
   position: relative;
@@ -323,7 +324,7 @@ body #nav-music {
   margin-left: 15px;
 }
 
-#heoMusic-page .aplayer-info .aplayer-time .aplayer-icon::before {
+#heoMusic-page .aplayer-info .aplayer-time .aplayer-volume-wrap::before {
   content: '';
   position: absolute;
   padding: 8px;
@@ -344,7 +345,8 @@ body #nav-music {
 
 #heoMusic-page .aplayer-list {
   width: 100%;
-  height: calc(100vh - 445px);
+  height: 100%;
+  flex: 1;
   min-width: 200px;
 }
  

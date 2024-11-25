@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  <title>Meting-APlayer</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+</head>
+
+<body>
+  <div id="meting_js"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+  <script>
+    let playlist_id
+    const params = window.location.search.substring(1).split('&')
+    for (let i = 0; i < params.length; i++) {
+      let pair = params[i].split('=')
+      if (pair[0] === 'id') {
+        playlist_id = pair[1]
+        break
+      }
+    }
+    playlist_id = playlist_id || '2619366284'
+    window.meting_api = 'https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r'
+    document.getElementById('meting_js').innerHTML = `<meting-js server="netease" type="playlist" id="${playlist_id}" order="list"></meting-js>`
+  </script>
+
+</body>
+
+</html>

@@ -241,7 +241,7 @@
 }
 
 .aplayer .aplayer-pic:hover .aplayer-button {
-  opacity: 1
+  display: none;
 }
 
 .aplayer .aplayer-pic .aplayer-button {
@@ -268,7 +268,8 @@
   border: 2px solid #fff;
   bottom: 50%;
   right: 50%;
-  margin: 0 -15px -15px 0
+  margin: 0 -15px -15px 0;
+  display: none;
 }
 
 .aplayer .aplayer-pic .aplayer-play svg {
@@ -284,7 +285,8 @@
   height: 16px;
   border: 2px solid #fff;
   bottom: 4px;
-  right: 4px
+  right: 4px;
+  display: none;
 }
 
 .aplayer .aplayer-pic .aplayer-pause svg {

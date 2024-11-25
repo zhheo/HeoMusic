@@ -32,7 +32,7 @@ function loadMusicScript() {
   if (typeof localMusic === 'undefined' || !Array.isArray(localMusic) || localMusic.length === 0) {
     // 如果 localMusic 为空数组或未定义，加载 Meting2.min.js
     var script = document.createElement('script');
-    script.src = './js/Meting2.min.js';
+    script.src = './js/Meting.js';
     document.body.appendChild(script);
   } else {
     // 否则加载 localEngine.js
