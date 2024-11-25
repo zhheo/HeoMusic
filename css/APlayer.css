@@ -488,7 +488,7 @@
 .aplayer .aplayer-lrc:before {
   position: absolute;
   z-index: 1;
-  display: block;
+  display: none;
   overflow: hidden;
   width: 100%;
   content: " "
@@ -546,6 +546,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+  padding-right: 8px;
   overflow-y: auto;
   height: 100%;
 }

@@ -37,7 +37,7 @@ function loadMusicScript() {
   } else {
     // 否则加载 localEngine.min.js
     var script = document.createElement('script');
-    script.src = './js/localEngine.min.js';
+    script.src = './js/localEngine.js';
     document.body.appendChild(script);
     local = true;
   }
