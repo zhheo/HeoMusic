@@ -123,6 +123,7 @@ body {
   background: rgba(0, 0, 0, 0);
   border: none;
   box-shadow: none;
+  height: calc(100dvh - 170px);
 }
 
 body #web_bg {
