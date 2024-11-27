@@ -130,6 +130,8 @@ class MetingJSElement extends HTMLElement {
     this.appendChild(div)
 
     this.aplayer = new APlayer(options)
+
+    heo.setupMediaSessionHandlers(this.aplayer);
   }
 
 }

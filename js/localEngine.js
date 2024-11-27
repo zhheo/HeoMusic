@@ -19,3 +19,5 @@ const ap = new APlayer({
   lrcType: 3,
   audio: encodedLocalMusic
 });
+
+heo.setupMediaSessionHandlers(ap);
