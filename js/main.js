@@ -200,6 +200,76 @@ var heo = {
         });
     }
   },
+  // 响应 MediaSession 标准媒体交互
+  setupMediaSessionHandlers: function (aplayer) {
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.setActionHandler('play', () => {
+        aplayer.play();
+      });
+
+      navigator.mediaSession.setActionHandler('pause', () => {
+        aplayer.pause();
+      });
+
+      navigator.mediaSession.setActionHandler('seekbackward', () => {
+        aplayer.seek(aplayer.audio.currentTime -= 10);
+      });
+
+      navigator.mediaSession.setActionHandler('seekforward', () => {
+        aplayer.seek(aplayer.audio.currentTime += 10);
+      });
+
+      navigator.mediaSession.setActionHandler('previoustrack', () => {
+        aplayer.skipBack();
+      });
+
+      navigator.mediaSession.setActionHandler('nexttrack', () => {
+        aplayer.skipForward();
+      });
+
+      // 更新 Media Session 元数据
+      aplayer.on('loadeddata', () => {
+        const audio = aplayer.list.audios[aplayer.list.index]
+        console.log("播放歌曲名称：", audio.name);
+        console.log("播放歌曲歌手：", audio.artist);
+
+        const coverUrl = audio.cover || './img/icon.png';
+        console.log("播放歌曲封面：", coverUrl);
+
+        if ('mediaSession' in navigator) {
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title: audio.name,
+            artist: audio.artist,
+            album: audio.album,
+            artwork: [
+              { src: coverUrl, sizes: '96x96', type: 'image/jpeg' },
+              { src: coverUrl, sizes: '128x128', type: 'image/jpeg' },
+              { src: coverUrl, sizes: '192x192', type: 'image/jpeg' },
+              { src: coverUrl, sizes: '256x256', type: 'image/jpeg' },
+              { src: coverUrl, sizes: '384x384', type: 'image/jpeg' },
+              { src: coverUrl, sizes: '512x512', type: 'image/jpeg' }
+            ]
+          });
+        } else {
+          console.log('当前浏览器不支持 Media Session API');
+          document.title = `${audio.name} - ${audio.artist}`;
+        }
+      });
+
+      // 更新播放状态
+      aplayer.on('play', () => {
+        if ('mediaSession' in navigator) {
+          navigator.mediaSession.playbackState = 'playing';
+        }
+      });
+
+      aplayer.on('pause', () => {
+        if ('mediaSession' in navigator) {
+          navigator.mediaSession.playbackState = 'paused';
+        }
+      });
+    }
+  }
 }
 
 // 调用
