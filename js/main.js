@@ -104,20 +104,20 @@ var heo = {
     
     if (lrcContent && currentLyric) {
       let startScrollTop = lrcContent.scrollTop;
-      let targetScrollTop = currentLyric.offsetTop - (window.innerHeight - 150 ) * 0.3; // 目标位置在30%的dvh位置
+      let targetScrollTop = currentLyric.offsetTop - (window.innerHeight - 150) * 0.3; // 目标位置在30%的dvh位置
       let distance = targetScrollTop - startScrollTop;
-      let duration = 600;
+      let duration = 600; // 缩短动画时间以提高流畅度
       let startTime = null;
 
-      function cubicBezier(t) {
-        return 3 * (1 - t) * (1 - t) * t * 0.95 + 3 * (1 - t) * t * t * 0.99 + t * t * t;
+      function easeOutQuad(t) {
+        return t * (2 - t);
       }
 
       function animateScroll(currentTime) {
         if (startTime === null) startTime = currentTime;
         let timeElapsed = currentTime - startTime;
         let progress = Math.min(timeElapsed / duration, 1);
-        let easeProgress = cubicBezier(progress);
+        let easeProgress = easeOutQuad(progress);
         lrcContent.scrollTop = startScrollTop + (distance * easeProgress);
         if (timeElapsed < duration) {
           requestAnimationFrame(animateScroll);

@@ -206,6 +206,8 @@ body #nav-music {
   text-shadow: 0px 2px 0px #ffffff00;
   position: relative;
   cursor: pointer;
+  word-wrap: break-word; /* 兼容性更好，用于长单词换行 */
+  word-break: break-all; /* 针对所有内容强制换行 */
 }
 
 #heoMusic-page .aplayer-info .aplayer-lrc p:hover::after {
@@ -259,6 +261,7 @@ body #nav-music {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  transform: translateZ(0);
 }
 
 @media screen and (max-width: 768px) {
