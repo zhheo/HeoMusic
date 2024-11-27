@@ -117,7 +117,7 @@ var heo = {
         if (startTime === null) startTime = currentTime;
         let timeElapsed = currentTime - startTime;
         let progress = Math.min(timeElapsed / duration, 1);
-        let easeProgress = easeOutQuad(progress);
+        let easeProgress = window.innerWidth < 768 ? progress : easeOutQuad(progress);
         lrcContent.scrollTop = startScrollTop + (distance * easeProgress);
         if (timeElapsed < duration) {
           requestAnimationFrame(animateScroll);
