@@ -227,6 +227,7 @@ body #nav-music {
   text-shadow: 0px 2px 16px #ffffff94;
   white-space: normal;
   text-overflow: clip;
+  transform: translateZ(0);
 }
 
 #heoMusic-page .aplayer-info .aplayer-lrc p.aplayer-lrc-current:first-child {
