@@ -238,7 +238,11 @@ var heo = {
         const dominantColor = colorThief.getColor(img);
         const metaThemeColor = document.querySelector('meta[name="theme-color"]');
         if (metaThemeColor) {
-          metaThemeColor.setAttribute('content', `rgb(${dominantColor.join(',')})`);
+          // 叠加rgba(0,0,0,0.4)的效果
+          const r = Math.round(dominantColor[0] * 0.6); // 原色 * 0.6 实现叠加黑色透明度0.4的效果
+          const g = Math.round(dominantColor[1] * 0.6);
+          const b = Math.round(dominantColor[2] * 0.6);
+          metaThemeColor.setAttribute('content', `rgb(${r},${g},${b})`);
         }
       };
     
