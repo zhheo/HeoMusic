@@ -200,6 +200,38 @@ var heo = {
         });
     }
   },
+  setMediaMetadata: function (aplayerObj, isSongPlaying) {
+    const audio = aplayerObj.list.audios[aplayerObj.list.index]
+    const coverUrl = audio.cover || './img/icon.webp';
+    const currentLrcContent = document.getElementById("heoMusic-page").querySelector(".aplayer-lrc-current").textContent;
+    let songName, songArtist;
+
+    if ('mediaSession' in navigator) {
+      if (isSongPlaying && currentLrcContent) {
+        songName = currentLrcContent;
+        songArtist = `${audio.artist}/${audio.name}`;
+      } else {
+        songName = audio.name;
+        songArtist = audio.artist;
+      }
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: songName,
+        artist: songArtist,
+        album: audio.album,
+        artwork: [
+          { src: coverUrl, sizes: '96x96', type: 'image/jpeg' },
+          { src: coverUrl, sizes: '128x128', type: 'image/jpeg' },
+          { src: coverUrl, sizes: '192x192', type: 'image/jpeg' },
+          { src: coverUrl, sizes: '256x256', type: 'image/jpeg' },
+          { src: coverUrl, sizes: '384x384', type: 'image/jpeg' },
+          { src: coverUrl, sizes: '512x512', type: 'image/jpeg' }
+        ]
+      });
+    } else {
+      console.log('当前浏览器不支持 Media Session API');
+      document.title = `${audio.name} - ${audio.artist}`;
+    }
+  },
   // 响应 MediaSession 标准媒体交互
   setupMediaSessionHandlers: function (aplayer) {
     if ('mediaSession' in navigator) {
@@ -226,31 +258,7 @@ var heo = {
 
       // 更新 Media Session 元数据
       aplayer.on('loadeddata', () => {
-        const audio = aplayer.list.audios[aplayer.list.index]
-        console.log("播放歌曲名称：", audio.name);
-        console.log("播放歌曲歌手：", audio.artist);
-
-        const coverUrl = audio.cover || './img/icon.png';
-        console.log("播放歌曲封面：", coverUrl);
-
-        if ('mediaSession' in navigator) {
-          navigator.mediaSession.metadata = new MediaMetadata({
-            title: audio.name,
-            artist: audio.artist,
-            album: audio.album,
-            artwork: [
-              { src: coverUrl, sizes: '96x96', type: 'image/jpeg' },
-              { src: coverUrl, sizes: '128x128', type: 'image/jpeg' },
-              { src: coverUrl, sizes: '192x192', type: 'image/jpeg' },
-              { src: coverUrl, sizes: '256x256', type: 'image/jpeg' },
-              { src: coverUrl, sizes: '384x384', type: 'image/jpeg' },
-              { src: coverUrl, sizes: '512x512', type: 'image/jpeg' }
-            ]
-          });
-        } else {
-          console.log('当前浏览器不支持 Media Session API');
-          document.title = `${audio.name} - ${audio.artist}`;
-        }
+        heo.setMediaMetadata(aplayer, false);
       });
 
       // 更新播放状态
@@ -264,6 +272,11 @@ var heo = {
         if ('mediaSession' in navigator) {
           navigator.mediaSession.playbackState = 'paused';
         }
+      });
+
+      // 监听时间更新事件
+      aplayer.on('timeupdate', () => {
+        heo.setMediaMetadata(aplayer, true);
       });
     }
   }
