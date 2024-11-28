@@ -60,7 +60,6 @@ var heo = {
       var img = new Image();
       img.src = extractValue(musiccover.style.backgroundImage);
       img.onload = function() {
-        heoMusicBg.style.backgroundImage = musiccover.style.backgroundImage;
         heo.updateThemeColorWithImage(img);
       };
     } else {
