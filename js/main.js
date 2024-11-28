@@ -50,67 +50,6 @@ var volume = 0.8;
 const params = new URLSearchParams(window.location.search);
 
 var heo = {
-  // 音乐节目切换背景
-  changeMusicBg: function (isChangeBg = true) {
-    const heoMusicBg = document.getElementById("music_bg")
-
-    if (isChangeBg) {
-      // player loadeddata 会进入此处
-      const musiccover = document.querySelector("#heoMusic-page .aplayer-pic");
-      var img = new Image();
-      img.src = extractValue(musiccover.style.backgroundImage);
-      img.onload = function() {
-        heo.updateThemeColorWithImage(img);
-      };
-    } else {
-      // 第一次进入，绑定事件，改背景
-      let timer = setInterval(()=>{
-        const musiccover = document.querySelector("#heoMusic-page .aplayer-pic");
-        // 确保player加载完成
-        if (musiccover) {
-          clearInterval(timer)
-          //初始化音量
-          if (local) {
-            ap.volume(0.8, true);
-          }else {
-            document.querySelector('meting-js').aplayer.volume(0.8,true);
-          }
-
-          // 绑定事件
-          heo.addEventListenerChangeMusicBg();
-          // 添加歌词点击事件
-          heo.addLyricClickEvent();
-        }
-      }, 100)
-    }
-  },
-  addEventListenerChangeMusicBg: function () {
-    const heoMusicPage = document.getElementById("heoMusic-page");
-    if (local) {
-      ap.on('loadeddata', function () {
-        heo.changeMusicBg();
-        // 在图片加载后调用
-        const musiccover = document.querySelector("#heoMusic-page .aplayer-pic");
-        var img = new Image();
-        img.src = extractValue(musiccover.style.backgroundImage);
-        img.onload = function() {
-          heo.updateThemeColorWithImage(img);
-        };
-      });
-    }else {
-      heoMusicPage.querySelector("meting-js").aplayer.on('loadeddata', function () {
-        heo.changeMusicBg();
-        // 在图片加载后调用
-        const musiccover = document.querySelector("#heoMusic-page .aplayer-pic");
-        var img = new Image();
-        img.src = extractValue(musiccover.style.backgroundImage);
-        img.onload = function() {
-          heo.updateThemeColorWithImage(img);
-        };
-      });
-    }
-  },
-
   scrollLyric: function() {
     const lrcContent = document.querySelector('.aplayer-lrc');
     const currentLyric = document.querySelector('.aplayer-lrc-current');
@@ -154,8 +93,8 @@ var heo = {
       console.log("无自定义内容")
       heoMusicPage.innerHTML = `<meting-js id="${userId}" server="${userServer}" type="${userType}" mutex="true" preload="auto" order="random"></meting-js>`;
     }
-    heo.changeMusicBg(false);
   },
+  
   bindEvents: function () {
     var e = this;
     // 添加歌词点击件
@@ -317,26 +256,6 @@ var heo = {
   
 }
 
-// 调用
-heo.getCustomPlayList();
-
-
-// 改进vh
-const vh = window.innerHeight * 1;
-document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-window.addEventListener('resize', () => {
-  let vh = window.innerHeight * 1;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-});
-
-//获取图片url
-function extractValue(input) {
-  var valueRegex = /\("([^\s]+)"\)/g;
-  var match = valueRegex.exec(input);
-  return match[1];
-}
-
 //空格控制音乐
 document.addEventListener("keydown", function(event) {
   //暂停开启音乐
@@ -394,3 +313,6 @@ ap.skipBack();
     }
   }
 });
+
+// 调用
+heo.getCustomPlayList();

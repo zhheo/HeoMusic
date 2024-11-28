@@ -506,7 +506,7 @@ body .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.apla
     border-radius: 0px 0px 16px 16px;
     padding: 15px 0px;
     max-width: 100vw;
-    height: calc(var(--vh) - 240px);
+    height: calc(100dvh - 240px);
   }
   #heoMusic-page .aplayer-list.aplayer-list-hide {
     top: -100% !important;
@@ -570,7 +570,7 @@ body .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.apla
     left: 0;
     right: 0;
     top: 0;
-    height: calc(var(--vh) - 200px);
+    height: calc(100dvh - 200px);
   }
   #heoMusic-page .aplayer-info .aplayer-lrc {
     margin-top: 0;
