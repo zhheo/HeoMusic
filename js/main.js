@@ -61,6 +61,7 @@ var heo = {
       img.src = extractValue(musiccover.style.backgroundImage);
       img.onload = function() {
         heoMusicBg.style.backgroundImage = musiccover.style.backgroundImage;
+        heo.updateThemeColorWithImage(img);
       };
     } else {
       // 第一次进入，绑定事件，改背景
@@ -89,11 +90,24 @@ var heo = {
     if (local) {
       ap.on('loadeddata', function () {
         heo.changeMusicBg();
-    });
+        // 在图片加载后调用
+        const musiccover = document.querySelector("#heoMusic-page .aplayer-pic");
+        var img = new Image();
+        img.src = extractValue(musiccover.style.backgroundImage);
+        img.onload = function() {
+          heo.updateThemeColorWithImage(img);
+        };
+      });
     }else {
       heoMusicPage.querySelector("meting-js").aplayer.on('loadeddata', function () {
         heo.changeMusicBg();
-        // console.info('player loadeddata');
+        // 在图片加载后调用
+        const musiccover = document.querySelector("#heoMusic-page .aplayer-pic");
+        var img = new Image();
+        img.src = extractValue(musiccover.style.backgroundImage);
+        img.onload = function() {
+          heo.updateThemeColorWithImage(img);
+        };
       });
     }
   },
@@ -145,7 +159,7 @@ var heo = {
   },
   bindEvents: function () {
     var e = this;
-    // 添加歌词点击��件
+    // 添加歌词点击件
     if (this.lrc) {
         this.template.lrc.addEventListener('click', function (event) {
             // 确保点击的是歌词 p 元素
@@ -279,7 +293,29 @@ var heo = {
         heo.setMediaMetadata(aplayer, true);
       });
     }
+  },
+  updateThemeColorWithImage(img) {
+    if (local) {
+      const updateThemeColor = (colorThief) => {
+        const dominantColor = colorThief.getColor(img);
+        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+        if (metaThemeColor) {
+          metaThemeColor.setAttribute('content', `rgb(${dominantColor.join(',')})`);
+        }
+      };
+    
+      if (typeof ColorThief === 'undefined') {
+        const script = document.createElement('script');
+        script.src = './js/color-thief.min.js';
+        script.onload = () => updateThemeColor(new ColorThief());
+        document.body.appendChild(script);
+      } else {
+        updateThemeColor(new ColorThief());
+      }
+    }
+
   }
+  
 }
 
 // 调用

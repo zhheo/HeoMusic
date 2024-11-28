@@ -1,3 +1,8 @@
+## 3.4
+新增setupMediaSessionHandlers方法，响应 MediaSession 标准媒体交互 #23
+MediaSession移除快进10秒和快退10秒
+现在iOS锁屏或控制中心可以动态显示HeoMusic歌词了 #24
+
 ## 3.3
 解决使用本地音乐时，播放器歌曲列表滚动条异常、歌曲列表展示异常问题； #22
 在歌词加载失败时，使用“暂无歌词”说法替换原有“Not available”文案，也许更友好些； #22
