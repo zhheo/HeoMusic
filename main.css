@@ -661,7 +661,7 @@ body .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.apla
   #heoMusic-page .aplayer-info .aplayer-music {
     display: flex;
     position: fixed;
-    top: calc(var(--vh) - 178px);
+    top: calc(100dvh - 178px);
     left: 0;
     margin: 0;
     margin-left: 32px;
