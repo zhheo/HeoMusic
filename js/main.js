@@ -264,9 +264,28 @@ var heo = {
         updateThemeColor(new ColorThief());
       }
     }
+  },
 
-  }
+  // 检查是否移动端
+  isMobileDevice() {
+    if (window.innerWidth <= 768) {
+      return true
+    } else {
+      return false
+    }
+  },
 
+  // 处理播放列表展示or隐藏
+  handleResize() {
+    let aplayerList = document.getElementById('heoMusic-page').querySelector('.aplayer-list');
+    if (aplayerList) {
+      if (window.innerWidth <= 768 && !aplayerList.classList.contains('aplayer-list-hide')) {
+        aplayerList.classList.add('aplayer-list-hide');
+      } else if (window.innerWidth > 768 && aplayerList.classList.contains('aplayer-list-hide')) {
+        aplayerList.classList.remove('aplayer-list-hide');
+      }
+    }
+  },
 }
 
 //空格控制音乐
@@ -325,6 +344,13 @@ document.addEventListener("keydown", function (event) {
 
     }
   }
+});
+
+// 添加防抖处理
+let resizeTimeout;
+window.addEventListener('resize', function() {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(heo.handleResize, 100);
 });
 
 // 调用
