@@ -108,7 +108,7 @@ HeoMusic支持URL参数 `https://music.zhheo.com/?id=`+ id +`&server=` + server
 [@张洪Heo](https://github.com/zhheo)
 [@anzhiyu](https://github.com/anzhiyu-c)
 [@Glowed](https://github.com/Glowed)
-[kuole-o](https://github.com/kuole-o)
+[@kuole-o](https://github.com/kuole-o)
 [查看更多](https://github.com/zhheo/HeoMusic/graphs/contributors)
 
 ## 许可
