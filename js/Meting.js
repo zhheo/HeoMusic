@@ -110,7 +110,8 @@ class MetingJSElement extends HTMLElement {
       audio: data,
       mutex: true,
       lrcType: this.meta.lrcType || 3,
-      storageName: 'metingjs'
+      storageName: 'metingjs',
+      listFolded: window.innerWidth < 768 ? true : false
     }
 
     if (!data.length) return

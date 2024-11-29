@@ -1,3 +1,8 @@
+## 3.5
+解决在iOS中，无法拖动播放控件进度条调整歌曲播放进度问题 #28
+修复获取主题色问题
+修复在移动端，首次进入总是自动打开播放列表
+
 ## 3.4
 新增setupMediaSessionHandlers方法，响应 MediaSession 标准媒体交互 #23
 MediaSession移除快进10秒和快退10秒

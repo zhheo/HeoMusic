@@ -318,5 +318,23 @@ ap.skipBack();
   }
 });
 
+// 监听窗口大小变化
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 768) {
+    if (local) {
+      ap.list.show();
+    } else {
+      document.querySelector('meting-js').aplayer.list.show();
+    }
+  } else {
+    if (local) {
+      ap.list.hide();
+    } else {
+      document.querySelector('meting-js').aplayer.list.hide();
+    }
+  }
+
+});
+
 // 调用
 heo.getCustomPlayList();
