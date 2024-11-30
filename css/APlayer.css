@@ -534,7 +534,7 @@
 
 .aplayer .aplayer-list {
   overflow: auto;
-  transition: all .5s ease;
+  transition: top .5s ease;
   will-change: height;
   display: none;
   overflow: hidden

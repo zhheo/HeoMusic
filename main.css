@@ -153,7 +153,12 @@ body #nav-music {
   border-radius: 12px;
   z-index: 999;
   position: relative;
+  transform: scale(0.9);
   background-size: cover;
+}
+
+#heoMusic-page.aplayer_playing .aplayer-pic {
+  transform: scale(1);
 }
 
 #heoMusic-page .aplayer-info {
