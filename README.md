@@ -95,9 +95,9 @@ HeoMusic支持URL参数 `https://music.zhheo.com/?id=`+ id +`&server=` + server
 
 **鸡你太美:** https://music.zhheo.com/?id=2762963245&server=netease
 
-## 修改HTML的方法（适用于在线音乐和本地音乐）
+## 修改配置的方法（适用于在线音乐和本地音乐）
 
-编辑`index.html`的相关代码，填写歌单id和服务商
+将`config.js.demo`文件重命名为`config.js`，并修改其中的配置
 
 ![修改id和server](/img/help.webp)
 
