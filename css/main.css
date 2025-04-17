@@ -287,7 +287,7 @@ body #nav-music {
   align-items: center;
 }
 #heoMusic-page .aplayer-info .aplayer-controller .aplayer-bar-wrap {
-  margin: 0 160px 0 150px;
+  margin: 0 150px 0 150px;
 }
 #heoMusic-page .aplayer-info .aplayer-controller .aplayer-played {
   background: var(--heo-white) !important;
