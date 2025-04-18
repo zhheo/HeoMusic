@@ -304,6 +304,18 @@ var heo = {
       }
     }
 
+  },
+  
+  // 新增方法：将歌词滚动到顶部
+  scrollLyricToTop: function() {
+    const lrcContent = document.querySelector('.aplayer-lrc');
+    if (lrcContent) {
+      // 使用平滑滚动效果，但不过于缓慢
+      lrcContent.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   }
 
 }
