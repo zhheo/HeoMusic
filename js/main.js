@@ -47,43 +47,70 @@ function loadMusicScript() {
 
 var volume = 0.8;
 
-// 监听鼠标滚轮事件
-document.addEventListener('wheel', function(event) {
-  // 检查事件的目标元素是否在 aplayer-body 内部
-  let targetElement = event.target;
-  let isInAplayerBody = false;
-  
-  // 向上遍历DOM树，检查是否在aplayer-body内
-  while (targetElement && targetElement !== document) {
-    if (targetElement.classList && targetElement.classList.contains('aplayer-body')) {
-      isInAplayerBody = true;
-      break;
-    }
-    targetElement = targetElement.parentNode;
-  }
-  
-  // 只有当鼠标在 aplayer-body 内时才改变 isScrolling
-  if (isInAplayerBody) {
-    // 设置isScrolling为true
-    isScrolling = true;
-    
-    // 清除之前的定时器
-    if(scrollTimer !== null) {
-      clearTimeout(scrollTimer);
-    }
-    
-    // 设置新的定时器，2秒后将isScrolling恢复为false
-    scrollTimer = setTimeout(function() {
-      isScrolling = false;
-    }, 2000);
-  }
-}, { passive: true });
-
 // 获取地址栏参数
 // 创建URLSearchParams对象并传入URL中的查询字符串
 const params = new URLSearchParams(window.location.search);
 
 var heo = {
+  // 处理滚动和触摸事件的通用方法
+  handleScrollOrTouch: function(event, isTouchEvent) {
+    // 检查事件的目标元素是否在相关区域内部
+    let targetElement = event.target;
+    let isInTargetArea = false;
+    
+    // 向上遍历DOM树，检查是否在目标区域内
+    while (targetElement && targetElement !== document) {
+      if (targetElement.classList) {
+        if (isTouchEvent) {
+          // 触摸事件检查 aplayer-body 或 aplayer-lrc
+          if (targetElement.classList.contains('aplayer-body') || 
+              targetElement.classList.contains('aplayer-lrc')) {
+            isInTargetArea = true;
+            break;
+          }
+        } else {
+          // 鼠标滚轮事件只检查 aplayer-body
+          if (targetElement.classList.contains('aplayer-body')) {
+            isInTargetArea = true;
+            break;
+          }
+        }
+      }
+      targetElement = targetElement.parentNode;
+    }
+    
+    // 只有当在目标区域内时才改变 isScrolling
+    if (isInTargetArea) {
+      // 设置isScrolling为true
+      isScrolling = true;
+      
+      // 清除之前的定时器
+      if(scrollTimer !== null) {
+        clearTimeout(scrollTimer);
+      }
+      
+      // 设置新的定时器，恢复isScrolling为false
+      // 触摸事件给予更长的时间
+      const timeoutDuration = isTouchEvent ? 2500 : 2000;
+      scrollTimer = setTimeout(function() {
+        isScrolling = false;
+      }, timeoutDuration);
+    }
+  },
+  
+  // 初始化滚动和触摸事件
+  initScrollEvents: function() {
+    // 监听鼠标滚轮事件
+    document.addEventListener('wheel', (event) => {
+      this.handleScrollOrTouch(event, false);
+    }, { passive: true });
+    
+    // 监听触摸滑动事件
+    document.addEventListener('touchmove', (event) => {
+      this.handleScrollOrTouch(event, true);
+    }, { passive: true });
+  },
+
   scrollLyric: function () {
     // 当 isScrolling 为 true 时，跳过执行
     if (isScrolling) {
@@ -316,8 +343,13 @@ var heo = {
         behavior: 'smooth'
       });
     }
+  },
+  
+  // 初始化所有事件
+  init: function() {
+    this.getCustomPlayList();
+    this.initScrollEvents();
   }
-
 }
 
 //空格控制音乐
@@ -368,5 +400,5 @@ window.addEventListener('resize', function() {
 
 });
 
-// 调用
-heo.getCustomPlayList();
+// 调用初始化
+heo.init();
