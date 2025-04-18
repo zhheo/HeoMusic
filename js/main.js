@@ -206,6 +206,9 @@ var heo = {
               if (player.lrc.current[i]) {
                 const time = player.lrc.current[i][0];
                 player.seek(time);
+                // 点击歌词后不再等待4s，立即跳转
+                isScrolling = false;
+                clearTimeout(scrollTimer);
                 // 如果当前是暂停状态,则恢复播放
                 if (player.paused) {
                   player.play();
