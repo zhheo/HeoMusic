@@ -2,6 +2,7 @@
 切换音乐时，歌词滚动到顶部
 兼容移动端滚动
 在手动滚动后，4秒后会自动回到当前歌词 感谢 @Gavin-Meskin-Chen 的建议
+封面添加阴影 感谢 @Gavin-Meskin-Chen 的建议
 
 ## 3.6
 修复了本地音乐获取主题色的问题 感谢 @Gavin-Meskin-Chen
