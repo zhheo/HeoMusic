@@ -1,5 +1,7 @@
 console.log("\n %c HeoMusic 开源静态音乐播放器 %c https://github.com/zhheo/HeoMusic \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
 var local = false;
+var isScrolling = false; // 添加全局变量 isScrolling，默认为 false
+var scrollTimer = null; // 添加定时器变量
 
 if (typeof userId === 'undefined') {
   var userId = "8152976493"; // 替换为实际的默认值
@@ -45,12 +47,49 @@ function loadMusicScript() {
 
 var volume = 0.8;
 
+// 监听鼠标滚轮事件
+document.addEventListener('wheel', function(event) {
+  // 检查事件的目标元素是否在 aplayer-body 内部
+  let targetElement = event.target;
+  let isInAplayerBody = false;
+  
+  // 向上遍历DOM树，检查是否在aplayer-body内
+  while (targetElement && targetElement !== document) {
+    if (targetElement.classList && targetElement.classList.contains('aplayer-body')) {
+      isInAplayerBody = true;
+      break;
+    }
+    targetElement = targetElement.parentNode;
+  }
+  
+  // 只有当鼠标在 aplayer-body 内时才改变 isScrolling
+  if (isInAplayerBody) {
+    // 设置isScrolling为true
+    isScrolling = true;
+    
+    // 清除之前的定时器
+    if(scrollTimer !== null) {
+      clearTimeout(scrollTimer);
+    }
+    
+    // 设置新的定时器，2秒后将isScrolling恢复为false
+    scrollTimer = setTimeout(function() {
+      isScrolling = false;
+    }, 2000);
+  }
+}, { passive: true });
+
 // 获取地址栏参数
 // 创建URLSearchParams对象并传入URL中的查询字符串
 const params = new URLSearchParams(window.location.search);
 
 var heo = {
   scrollLyric: function () {
+    // 当 isScrolling 为 true 时，跳过执行
+    if (isScrolling) {
+      return;
+    }
+    
     const lrcContent = document.querySelector('.aplayer-lrc');
     const currentLyric = document.querySelector('.aplayer-lrc-current');
 
