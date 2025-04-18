@@ -91,9 +91,10 @@ var heo = {
       
       // 设置新的定时器，恢复isScrolling为false
       // 触摸事件给予更长的时间
-      const timeoutDuration = isTouchEvent ? 2500 : 2000;
+      const timeoutDuration = isTouchEvent ? 4500 : 4000;
       scrollTimer = setTimeout(function() {
         isScrolling = false;
+        heo.scrollLyric();
       }, timeoutDuration);
     }
   },
