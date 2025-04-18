@@ -228,7 +228,7 @@ var heo = {
     if ('mediaSession' in navigator) {
       if (isSongPlaying && currentLrcContent) {
         songName = currentLrcContent;
-        songArtist = `${audio.artist}/${audio.name}`;
+        songArtist = `${audio.artist} / ${audio.name}`;
       } else {
         songName = audio.name;
         songArtist = audio.artist;
@@ -293,12 +293,14 @@ var heo = {
       aplayer.on('play', () => {
         if ('mediaSession' in navigator) {
           navigator.mediaSession.playbackState = 'playing';
+          heo.setMediaMetadata(aplayer, true);
         }
       });
 
       aplayer.on('pause', () => {
         if ('mediaSession' in navigator) {
           navigator.mediaSession.playbackState = 'paused';
+          heo.setMediaMetadata(aplayer, false);
         }
       });
 
