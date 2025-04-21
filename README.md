@@ -99,8 +99,6 @@ HeoMusic支持URL参数 `https://music.zhheo.com/?id=`+ id +`&server=` + server
 
 将`config.js.demo`文件重命名为`config.js`，并修改其中的配置
 
-![修改id和server](/img/help.webp)
-
 直接访问首页`index.html`即可
 
 ## 参与开发
