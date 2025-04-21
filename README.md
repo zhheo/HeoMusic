@@ -18,19 +18,35 @@
 
 ## 修改歌单/私有部署与配置（适用于在线音乐）
 
-### ID
+### 使用URL参数（推荐）
+
+HeoMusic支持URL参数 `https://music.zhheo.com/?id=`+ id +`&server=` + server
+
+例如：
+
+**HeoMusicTop:** https://music.zhheo.com/?id=8668419170&server=tencent
+
+**鸡你太美:** https://music.zhheo.com/?id=2762963245&server=netease
+
+### 修改配置文件（适用于在线音乐和本地音乐）
+
+将`config.js.demo`文件重命名为`config.js`，并修改其中的配置
+
+直接访问首页`index.html`即可
+
+#### ID
 
 播放列表的id，可以从音乐歌单分享的链接中获取，例如`https://y.qq.com/n/ryqq/playlist/8668419170`中，id为`8668419170`
 
-### Server
+#### Server
 
 播放列表的服务商，例如`netease`（网易云音乐）,`tencent`（腾讯）,`kugou`（酷狗）,`xiami`（小米音乐）,`baidu`（百度音乐）
 
-### Type（可选）
+#### Type（可选）
 
 播放列表的类型，例如`song`（单曲）, `playlist`（歌单，默认）, `album`（专辑）, `search`（搜索结果）, `artist`（歌手）
 
-### localMusic（可选）
+#### localMusic（可选）
 
 本地音乐/外链音乐。如果填写了本地音乐，则优先使用本地音乐。
 
@@ -54,7 +70,7 @@
   ];
 ```
 
-### remoteMusic（可选）
+#### remoteMusic（可选）
 
 使用json格式的链接来进行读取localMusic，会覆盖localMusic的设置。
 
@@ -84,22 +100,6 @@ musicjson内容例如：
   }
 ]
 ```
-
-## 使用URL参数（推荐）
-
-HeoMusic支持URL参数 `https://music.zhheo.com/?id=`+ id +`&server=` + server
-
-例如：
-
-**HeoMusicTop:** https://music.zhheo.com/?id=8668419170&server=tencent
-
-**鸡你太美:** https://music.zhheo.com/?id=2762963245&server=netease
-
-## 修改配置的方法（适用于在线音乐和本地音乐）
-
-将`config.js.demo`文件重命名为`config.js`，并修改其中的配置
-
-直接访问首页`index.html`即可
 
 ## 参与开发
 
